@@ -16,7 +16,7 @@ To reproduce the agent, import the provided YAML files into your Copilot Studio 
 
 ## References
 
-- [Technical Documentation](docs/solution-architecture.pdf)
+- [Technical Documentation](docs/Team_17_TechnicalDD.pdf)
 - [Copilot Studio Official Docs](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 
 ## Limitations
