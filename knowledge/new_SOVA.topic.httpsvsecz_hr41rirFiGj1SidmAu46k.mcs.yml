@@ -1,0 +1,6 @@
+# Name: https://vse.cz
+# This knowledge source searches information on the web found in https://vse.cz website
+kind: KnowledgeSourceConfiguration
+source:
+  kind: PublicSiteSearchSource
+  site: https://vse.cz

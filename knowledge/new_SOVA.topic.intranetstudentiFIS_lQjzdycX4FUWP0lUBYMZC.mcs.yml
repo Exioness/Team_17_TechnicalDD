@@ -1,0 +1,6 @@
+# Name: intranet-studenti-FIS
+# This knowledge source provides information found in intranet-studenti-FIS SharePoint.
+kind: KnowledgeSourceConfiguration
+source:
+  kind: SharePointSearchSource
+  site: https://vse.sharepoint.com/sites/intranet-studenti-FIS

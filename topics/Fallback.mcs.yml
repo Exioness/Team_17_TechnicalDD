@@ -1,0 +1,21 @@
+# Name: Náhradní téma
+# Toto systémové téma se spustí, když se výrok uživatele neshoduje s žádným existujícím tématem.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnUnknownIntent
+  id: main
+  actions:
+    - kind: ConditionGroup
+      id: conditionGroup_LktzXw
+      conditions:
+        - id: conditionItem_tlGIVo
+          condition: =System.FallbackCount < 3
+          actions:
+            - kind: SendActivity
+              id: sendMessage_QZreqo
+              activity: Bohužel nevím, jak vám s tím pomoci. Můžete zkusit svůj dotaz přeformulovat?
+
+      elseActions:
+        - kind: BeginDialog
+          id: 5aXj5M
+          dialog: new_SOVA.topic.Escalate

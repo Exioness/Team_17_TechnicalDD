@@ -1,0 +1,70 @@
+# Name: Eskalace
+# Toto systémové téma se spustí, když uživatel sdělí, že by chtěl mluvit s nějakým zástupcem.
+# V nastavení agenta můžete nakonfigurovat, jak agent zpracuje předání člověkovi.
+# Pokud váš agent nezpracovává eskalace, mělo by být toto téma zakázáno.
+kind: AdaptiveDialog
+startBehavior: CancelOtherTopics
+beginDialog:
+  kind: OnEscalate
+  id: main
+  intent:
+    displayName: Eskalace
+    includeInOnSelectIntent: false
+    triggerQueries:
+      - Chci mluvit s technikem
+      - Mluvit s členem technické podpory
+      - Mluvit s někým z technické podpory
+      - Zástupce pro zákazníky
+      - Služby zákazníkům
+      - zákaznické služby
+      - Spojte mě se zástupcem
+      - Spojte mě s nějakou osobou
+      - Chatovat s člověkem
+      - Chatovat se zástupcem
+      - Mohl by mě někdo kontaktovat telefonicky
+      - Zákaznický agent
+      - Chatovat s někým
+      - Chci mluvit s živým technikem
+      - Chci mluvit s kolegou
+      - Chci mluvit s pracovníkem
+      - Potřebuji mluvit s odborníkem
+      - Potřebuji mluvit se specialistou
+      - Chci mluvit s konzultantem
+      - Chci mluvit s poradcem
+      - Chci mluvit se službami zákazníkům
+      - Chci mluvit se zákaznickými službami
+      - Potřebuji, aby mě kontaktoval manažer
+      - Potřebuji mluvit s živým agentem
+      - Chci pokračovat s živou podporou
+      - Potřebuji služby zákazníkům
+      - Potřebuji zákaznické služby
+      - Potřebuji pomoc od člověka
+      - Mohu mluvit s někým živým
+      - Mohu mluvit s člověkem
+      - Může mi někdo zavolat
+      - Může mi zavolat zástupce
+      - Mohu zavolat na nějaké číslo nebo může mi někdo zavolat
+      - Mohu mluvit se zástupcem
+      - Mohu naplánovat hovor
+      - Mohu si promluvit s někým jiným
+      - Můžete mě přepojit na nějakou osobu
+      - Mohu získat podporu od skutečného zástupce
+      - Mohu zavolat
+      - Zavolat podporu
+      - Zavolejte mi prosím
+      - Mluvit s někým
+      - Zavolat technickou podporu
+      - Zavolat služby zákazníkům
+      - Zavolat zákaznické služby
+      - Mluvit s člověkem
+      - Zavolat zpět
+      - Mluvit se zástupcem
+
+  actions:
+    - kind: SendActivity
+      id: sendMessage_s39DCt
+      conversationOutcome: Escalated
+      activity: |-
+        Eskalace na zástupce není v současné době u tohoto agenta nakonfigurována, nicméně právě zde by mohl agent poskytnout informace o tom, jak se s někým spojit jiným způsobem.
+        
+        Mohu vám ještě s něčím pomoci?

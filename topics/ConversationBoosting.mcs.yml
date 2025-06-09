@@ -1,0 +1,32 @@
+# Name: Conversation Boosting
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnUnknownIntent
+  id: main
+  priority: -1
+  actions:
+    - kind: SearchAndSummarizeContent
+      id: search-content
+      displayName: Create generative answers
+      variable: Topic.Answer
+      userInput: =System.Activity.Text
+      moderationLevel: Medium
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: SearchAllFiles
+
+      knowledgeSources:
+        kind: SearchAllKnowledgeSources
+
+      publicDataSource: {}
+      sharePointSearchDataSource: {}
+
+    - kind: ConditionGroup
+      id: has-answer-conditions
+      conditions:
+        - id: has-answer
+          condition: =!IsBlank(Topic.Answer)
+          actions:
+            - kind: EndDialog
+              id: end-topic
+              clearTopicQueue: true

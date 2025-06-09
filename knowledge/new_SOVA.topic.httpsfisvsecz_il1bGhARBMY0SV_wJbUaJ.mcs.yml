@@ -1,0 +1,6 @@
+# Name: https://fis.vse.cz
+# This knowledge source searches information on the web found in https://fis.vse.cz website
+kind: KnowledgeSourceConfiguration
+source:
+  kind: PublicSiteSearchSource
+  site: https://fis.vse.cz

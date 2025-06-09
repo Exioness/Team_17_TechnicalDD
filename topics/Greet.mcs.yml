@@ -1,0 +1,33 @@
+# Name: Greet
+kind: AdaptiveDialog
+modelDescription: This topic is a welcome topic. It responds to general greet statements like "Ahoj" "Čau" "Dobrý den" and so on.
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: SendActivity
+      id: sendActivity_y6wYPW
+      activity: ahoj{System.Activity.Recipient.Name}
+
+    - kind: SearchAndSummarizeContent
+      id: qWWcMR
+      userInput: =System.LastMessage.Text
+      moderationLevel: Low
+      additionalInstructions: |-
+        {System.User.Email}{System.User.DisplayName}
+        
+        Use the information above to greet the user using the language he asked the question in.
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: DoNotSearchFiles
+
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+
+    - kind: SendActivity
+      id: sendActivity_FmyywD
+      activity: Ahoj {System.User.FirstName}
+
+inputType: {}
+outputType: {}

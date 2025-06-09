@@ -1,0 +1,41 @@
+# Name: Rozloučení
+# Toto téma se spustí, když se uživatel rozloučí. Ve výchozím nastavení neukončí konverzaci. Pokud chcete konverzaci ukončit, když se uživatel rozloučí, můžete k tomuto tématu přidat akci „Konec konverzace“ nebo provést přesměrování na systémové téma „Konec konverzace“.
+kind: AdaptiveDialog
+startBehavior: CancelOtherTopics
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Rozloučení
+    includeInOnSelectIntent: false
+    triggerQueries:
+      - Mějte se
+      - Zatím se mějte
+      - Zatím
+      - Na shledanou
+      - Ne, děkuji. Na shledanou.
+      - Uvidíme se později
+
+  actions:
+    - kind: Question
+      id: question_zf2HhP
+      variable: Topic.EndConversation
+      prompt: Chcete naši konverzaci ukončit?
+      entity: BooleanPrebuiltEntity
+
+    - kind: ConditionGroup
+      id: condition_DGc1Wy
+      conditions:
+        - id: condition_DGc1Wy-item-0
+          condition: =Topic.EndConversation = true
+          actions:
+            - kind: BeginDialog
+              id: dn94DC
+              dialog: new_SOVA.topic.EndofConversation
+
+        - id: condition_DGc1Wy-item-1
+          condition: =Topic.EndConversation = false
+          actions:
+            - kind: SendActivity
+              id: sendMessage_LdLhmf
+              activity: Pokračujte, poslouchám.

@@ -1,0 +1,6 @@
+# Name: https://vse.sharepoint.com
+# This knowledge source provides information found in https://vse.sharepoint.com SharePoint.
+kind: KnowledgeSourceConfiguration
+source:
+  kind: SharePointSearchSource
+  site: https://vse.sharepoint.com/

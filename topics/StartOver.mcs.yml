@@ -1,0 +1,37 @@
+# Name: Opětovné zahájení
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Opětovné zahájení
+    includeInOnSelectIntent: false
+    triggerQueries:
+      - začněme znovu
+      - pojďme začít znovu
+      - začít znovu
+      - znovu začít
+      - restartovat
+
+  actions:
+    - kind: Question
+      id: question_zguoVV
+      alwaysPrompt: false
+      variable: init:Topic.Confirm
+      prompt: Opravdu chcete znovu zahájit tuto konverzaci?
+      entity: BooleanPrebuiltEntity
+
+    - kind: ConditionGroup
+      id: conditionGroup_lvx2zV
+      conditions:
+        - id: conditionItem_sVQtHa
+          condition: =Topic.Confirm = true
+          actions:
+            - kind: BeginDialog
+              id: 0YKYsy
+              dialog: new_SOVA.topic.ResetConversation
+
+      elseActions:
+        - kind: SendActivity
+          id: sendMessage_lk2CyQ
+          activity: Dobře, pokračujme.

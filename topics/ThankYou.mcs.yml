@@ -1,0 +1,19 @@
+# Name: Poděkování
+# Toto téma se spustí, když uživatel poděkuje.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Poděkování
+    includeInOnSelectIntent: false
+    triggerQueries:
+      - děkuji
+      - děkuji vám
+      - moc děkuji
+      - díky
+
+  actions:
+    - kind: SendActivity
+      id: sendMessage_9iz6v7
+      activity: Rádo se stalo.

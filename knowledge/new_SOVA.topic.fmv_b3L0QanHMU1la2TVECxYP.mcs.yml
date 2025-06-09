@@ -1,0 +1,6 @@
+# Name: fmv
+# This knowledge source provides information found in fmv SharePoint.
+kind: KnowledgeSourceConfiguration
+source:
+  kind: SharePointSearchSource
+  site: https://vse.sharepoint.com/sites/fmv

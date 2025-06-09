@@ -1,0 +1,21 @@
+# Name: Přihlášení 
+# Toto systémové téma se spustí, když agent potřebuje přihlásit uživatele nebo vyžaduje, aby se uživatel přihlásil.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnSignIn
+  id: main
+  actions:
+    - kind: ConditionGroup
+      id: conditionGroup_ypjGKL
+      conditions:
+        - id: conditionItem_7XYIIR
+          condition: =System.SignInReason = SignInReason.SignInRequired
+          actions:
+            - kind: SendActivity
+              id: sendMessage_1jHUNO
+              activity: Zdravím vás. Než vám pomohu, potřebuji, abyste se přihlásili.
+
+    - kind: OAuthInput
+      id: gOjhZA
+      title: Přihlášení
+      text: Před pokračováním se přihlaste.

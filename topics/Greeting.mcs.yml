@@ -1,0 +1,34 @@
+# Name: Uvítání
+# Toto téma se spustí, když uživatel pozdraví agenta.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Uvítání
+    includeInOnSelectIntent: false
+    triggerQueries:
+      - Dobré odpoledne
+      - Dobré ráno
+      - Dobrý den
+      - Ahoj
+      - Zdravím
+
+  actions:
+    - kind: SearchAndSummarizeContent
+      id: TjDz0H
+      userInput: =System.User.DisplayName
+      additionalInstructions: |-
+        Answer with "Ahoj <name>, tak co to dnes bude?"
+        
+         
+      webBrowsing: false
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: SearchAllFiles
+
+      knowledgeSources:
+        kind: SearchAllKnowledgeSources
+
+    - kind: CancelAllDialogs
+      id: cancelAllDialogs_01At22

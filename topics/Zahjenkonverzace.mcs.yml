@@ -1,0 +1,30 @@
+# Name: Zahájení konverzace
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - Ahoj
+      - Dobrý den
+      - Jak se máš?
+      - Můžeme si promluvit?
+      - Potřebuji pomoc
+      - Zahájit konverzaci
+      - Mohu se na něco zeptat?
+      - Rád bych začal rozhovor
+      - Čau
+
+  actions:
+    - kind: Question
+      id: Question_icg7QZ
+      variable: Topic.Name
+      prompt: Jak se jmenuješ?
+      entity: PersonNamePrebuiltEntity
+
+    - kind: SendActivity
+      id: SendActivity_ZObbqN
+      activity: Ahoj, {Topic.Name}! S čím ti mohu dnes pomoci?
+
+inputType: {}
+outputType: {}

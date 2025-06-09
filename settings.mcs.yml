@@ -1,0 +1,28 @@
+﻿displayName: SOVA
+schemaName: new_SOVA
+accessControlPolicy: Any
+authenticationMode: Integrated
+authenticationTrigger: Always
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+
+  isAgentConnectable: false
+  gPTSettings:
+    defaultSchemaName: new_SOVA.gpt.default
+
+  aISettings:
+    useModelKnowledge: true
+    isFileAnalysisEnabled: true
+    isSemanticSearchEnabled: true
+    contentModeration: Low
+    optInUseLatestModels: true
+
+  recognizer:
+    kind: GenerativeAIRecognizer
+
+publishedOn: 2025-06-09T19:39:39.0000000Z
+template: default-2.1.0
+language: 1029
+supportedLanguages:
+  - 1033
